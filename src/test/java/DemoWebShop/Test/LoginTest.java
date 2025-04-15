@@ -1,5 +1,6 @@
 package DemoWebShop.Test;
 
+import DemoWebShop.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -34,7 +35,21 @@ public class LoginTest extends TestBase {
         returningCustomer(emailGenerator, "Password1");
         clickLoginAccount();
 
-        //WebElement element = driver.findElement(By.xpath("//a[@class = 'ico-logout']")); //в конце теста log out
-        //Assert.assertEquals( element.getText(), "Log out" );
+        WebElement element = driver.findElement(By.xpath("//a[@class = 'ico-logout']")); //в конце теста log out
+        Assert.assertEquals( element.getText(), "Log out" );
+    }
+
+    @Test
+    public void loginTest(){
+        User user = new User()
+                .setEmail("portishead@gmail.com")
+                .setPassword("tuctuctuc")
+                ;
+        clickLogin();
+        returningCustomerUserMethod(user);
+        clickLoginAccount();
+
+        WebElement element = driver.findElement(By.xpath("//a[@class = 'ico-logout']")); //в конце теста log out
+        Assert.assertEquals( element.getText(), "Log out" );
     }
 }

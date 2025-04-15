@@ -88,13 +88,13 @@ public class TestBase {
         type(By.cssSelector("#Password"), Password);
     }
 
-    protected void returningCustomer2(User user) {
+    protected void returningCustomerUserMethod(User user) {
         click(By.id("Email"));
         driver.findElement(By.id("Email")).clear();
         type(By.id("Email"),user.getEmail());
         click(By.cssSelector("#Password"));
         driver.findElement(By.cssSelector("#Password")).clear();
-        type(By.id("Email"),user.getPassword());
+        type(By.cssSelector("#Password"),user.getPassword());
 
     }
 
