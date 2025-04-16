@@ -1,7 +1,10 @@
 package DemoWebShop.Test;
 
 import DemoWebShop.Core.TestBase;
+import DemoWebShop.model.User;
+import DemoWebShop.utils.MyDataProvider;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -43,4 +46,15 @@ public class RegistrationTest extends TestBase {
             driver.quit();
         }
     }
+
+    @Test(dataProvider = "addNewAccountFromCsv",dataProviderClass = MyDataProvider.class)
+    public void regisrationTestwithCsv(User user){
+
+        registrateAccountWithUser(user);
+
+        WebElement element = driver.findElement(By.xpath("//a[@class = 'ico-logout']")); //в конце теста log out
+        Assert.assertEquals( element.getText(), "Log out" );
+
+    }
+
 }
