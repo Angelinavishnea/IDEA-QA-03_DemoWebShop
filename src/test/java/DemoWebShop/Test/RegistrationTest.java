@@ -56,5 +56,4 @@ public class RegistrationTest extends TestBase {
         Assert.assertEquals( element.getText(), "Log out" );
 
     }
-
 }
