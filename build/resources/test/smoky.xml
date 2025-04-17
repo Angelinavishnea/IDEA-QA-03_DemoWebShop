@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="smoky" verbose="1">
+    <!--    verbose = log level  -->
+    <test name="Features">
+        <!--  функции -->
+        <classes>
+
+            <class name="DemoWebShop.Test.RegistrationTest">
+            <methods>
+                <exclude name=".*Negative.*"> </exclude>
+            </methods>
+            </class>
+
+            <class name="DemoWebShop.Test.LoginTest"/>
+
+        </classes>
+    </test>
+</suite>
