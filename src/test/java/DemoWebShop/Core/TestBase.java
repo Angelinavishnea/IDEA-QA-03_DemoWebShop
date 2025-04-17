@@ -36,7 +36,8 @@ public class TestBase {
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //* basic methods
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
@@ -74,7 +75,8 @@ public class TestBase {
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //* methods with strings
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected void clickLoginAccount() {
         click(By.xpath("//input[@value='Log in']"));
@@ -89,16 +91,24 @@ public class TestBase {
         type(By.cssSelector("#Password"), Password);
     }
 
-    protected void clickLogin() {click(By.xpath("//a[@class = 'ico-login']"));
+    protected void clickLogin() {
+        click(By.xpath("//a[@class = 'ico-login']"));
     }
 
-    protected void clickLogOut() {click(By.xpath("//a[contains(text(),'Log out')]"));
+    protected void clickLogOut() {
+        click(By.xpath("//a[contains(text(),'Log out')]"));
     }
 
-    protected void clickContinue() {click(By.xpath("//input[@value='Continue']"));
+    protected void clickContinue() {
+        click(By.xpath("//input[@value='Continue']"));
     }
 
-    protected void clickFinishRegister() {click(By.xpath("//input[@id='register-button']"));
+    protected void clickStartRegister() {
+        click(By.xpath("//input[contains(@class, 'button-1') and @value = 'Register'] "));
+    }
+
+    protected void clickFinishRegister() {
+        click(By.xpath("//input[@id='register-button']"));
     }
 
     protected void personalDetails(String firstName, String lastName, String email, String Password, String ConfirmPassword) {
@@ -106,15 +116,15 @@ public class TestBase {
 
         click(By.xpath("//input[@id='FirstName']"));
         driver.findElement(By.xpath("//input[@id='FirstName']")).clear();
-        type(By.xpath("//input[@id='FirstName']"),firstName);
+        type(By.xpath("//input[@id='FirstName']"), firstName);
 
         click(By.xpath("//input[@id='LastName']"));
         driver.findElement(By.xpath("//input[@id='LastName']")).clear();
-        type(By.xpath("//input[@id='LastName']"),lastName);
+        type(By.xpath("//input[@id='LastName']"), lastName);
 
         click(By.xpath("//input[@id='Email']"));
         driver.findElement(By.xpath("//input[@id='Email']")).clear();
-        type(By.xpath("//input[@id='Email']"),email);
+        type(By.xpath("//input[@id='Email']"), email);
 
         click(By.xpath("//input[@id='Password']"));
         driver.findElement(By.xpath("//input[@id='Password']")).clear();
@@ -124,9 +134,6 @@ public class TestBase {
         driver.findElement(By.xpath("//input[@id='ConfirmPassword']")).clear();
         type(By.xpath("//input[@id='ConfirmPassword']"), ConfirmPassword);
 
-    }
-
-    protected void clickStartRegister() {click(By.xpath("//input[contains(@class, 'button-1') and @value = 'Register'] "));
     }
 
     protected void registrateAccount(String emailGenerator) {
@@ -139,15 +146,16 @@ public class TestBase {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //* methods with user
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     protected void returningCustomerUserMethod(User user) {
         click(By.id("Email"));
         driver.findElement(By.id("Email")).clear();
-        type(By.id("Email"),user.getEmail());
+        type(By.id("Email"), user.getEmail());
         click(By.cssSelector("#Password"));
         driver.findElement(By.cssSelector("#Password")).clear();
-        type(By.cssSelector("#Password"),user.getPassword());
+        type(By.cssSelector("#Password"), user.getPassword());
 
     }
 
@@ -163,7 +171,7 @@ public class TestBase {
 
         click(By.xpath("//input[@id='FirstName']"));
         driver.findElement(By.xpath("//input[@id='FirstName']")).clear();
-        type(By.xpath("//input[@id='FirstName']"),user.getName());
+        type(By.xpath("//input[@id='FirstName']"), user.getName());
 
         click(By.xpath("//input[@id='LastName']"));
         driver.findElement(By.xpath("//input[@id='LastName']")).clear();

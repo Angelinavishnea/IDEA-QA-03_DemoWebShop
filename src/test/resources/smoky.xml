@@ -9,10 +9,15 @@
             <class name="DemoWebShop.Test.RegistrationTest">
             <methods>
                 <exclude name=".*Negative.*"> </exclude>
+                <exclude name = ".*withCsv.*"> </exclude>
             </methods>
             </class>
 
-            <class name="DemoWebShop.Test.LoginTest"/>
+            <class name="DemoWebShop.Test.LoginTest">
+            <methods>
+                <exclude name=".*registrationAndLogin.*"> </exclude>
+            </methods>
+            </class>
 
         </classes>
     </test>

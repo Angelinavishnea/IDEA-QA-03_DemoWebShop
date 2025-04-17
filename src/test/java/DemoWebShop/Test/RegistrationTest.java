@@ -47,6 +47,7 @@ public class RegistrationTest extends TestBase {
         }
     }
 
+    //! работает разово: контактные данные из Csv зарегистрированы после первого запуска теста
     @Test(dataProvider = "addNewAccountFromCsv",dataProviderClass = MyDataProvider.class)
     public void regisrationTestwithCsv(User user){
 
